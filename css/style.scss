@@ -1,0 +1,157 @@
+@import 'reset';
+@import 'colour';
+@import 'font';
+@import 'mixin';
+
+*
+{
+	@include ProPrefix("box-sizing", border-box);
+}
+
+html
+{
+	height: 100%;
+	margin: 0 auto;
+	display: table;
+}
+
+body
+{
+	width: 100%;
+	height: 100%;
+	text-align: left;
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.container
+{
+	width: 600px;
+	height: 400px;	
+	padding: 25px 30px;
+	background: $main;
+
+	.inner
+	{
+		display: block;
+
+		> div
+		{
+			&:nth-child(1)
+			{
+				margin-bottom: 20px;
+			}
+		}		
+
+		.bars
+		{
+			.bar
+			{
+				position: relative;
+				border: 1px solid $border;
+				height: 42px;
+				overflow: hidden;
+				margin-bottom: 15px;
+
+				> .item
+				{
+					
+					background: $normal;
+					height: 100%;
+					width: 0%;
+					@include ProPrefix("transition", background .5s linear);
+				}
+
+				> label
+				{
+					z-index: 2;
+					min-width: 42px;
+					//left: 50%;
+					@include ProPrefix("left", calc(50% - 21px));
+
+					position: absolute;
+					line-height: 40px;
+					display: block;
+				}				
+
+				&:last-child
+				{
+					margin-bottom: 0;
+				}
+
+				&.exceeded
+				{
+					> .item
+					{
+						background: $err;
+					}
+				}				
+			}
+
+			margin-bottom: 20px;
+
+		}
+
+		.controller
+		{
+			select
+			{
+				margin-right: 15px;
+			}
+
+			input
+			{
+				margin-right: 5px;
+			}
+
+			input, select
+			{
+				background: $white;
+				border: 1px solid $border;
+				padding: 10px 15px;
+				font-size: 16px;
+
+				@include ProPrefix("border-radius", 2px);
+			}
+		}
+	}
+
+	h1
+	{
+		text-align: center;
+	}
+
+
+}
+
+// commented out (for real mobile device)
+// @media screen and (device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2){
+@media screen and (max-width: 568px)
+{
+
+	body
+	{
+		vertical-align: top;
+	}
+
+	h1
+	{
+    	font-size: 22px;
+	}    
+
+    .container
+    {
+    	width: 100%;
+    	padding: 20px 15px;
+
+    	.controller
+    	{
+	    	select
+	    	{
+	    		width: 100%;
+	    		margin-bottom: 20px;
+
+	    	}
+    	}
+    }
+}

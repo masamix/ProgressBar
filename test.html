@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Progress Bars</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="stylesheet" href="css/style.min.css" media="screen" />
+	<script src="js/vendor/jquery-1.12.4.min.js"></script>
+	<script src="js/app.min.js"></script>
+
+	 <!-- Unit Testing -->
+	<link rel="stylesheet" href="lib/jasmine-2.5.2/jasmine.css">
+	<script src="lib/jasmine-2.5.2/jasmine.js"></script>
+	<script src="lib/jasmine-2.5.2/jasmine-html.js"></script>
+	<script src="lib/jasmine-2.5.2/boot.js"></script>
+	<script src="spec/progressSpec.js"></script>
+
+
+</head>
+<body>
+	<div class="container">
+		<div class="inner">
+			<div>
+				<h1>Progress Bars Demo</h1>
+			</div>
+			<div class="bars">
+				<div id="progress1" class="bar">
+					<label data-existing-value="25">0%</label>
+					<div class="item"></div>
+				</div>
+				<div id="progress2" class="bar">
+					<label data-existing-value="50">0%</label>
+					<div class="item"></div>
+				</div>
+				<div id="progress3" class="bar">
+					<label data-existing-value="75">0%</label>
+					<div class="item"></div>
+				</div>
+			</div>
+			<div class="controller">
+				<select>
+					<option value="progress1">#progress1</option>
+					<option value="progress2">#progress2</option>
+					<option value="progress3">#progress3</option>
+				</select>
+				<input type="button" data-add-value="-25" value="-25" />
+				<input type="button" data-add-value="-10" value="-10" />
+				<input type="button" data-add-value="10" value="+10" />
+				<input type="button" data-add-value="25" value="+25" />
+			</div>
+		</div>
+	</div>
+</body>
+</html>
